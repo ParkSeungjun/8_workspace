@@ -4,29 +4,29 @@ import work.model.dto.Member;
 import java.util.ArrayList;
 
 /**
- * È¸¿ø°ü¸®¸¦ À§ÇÑ ±â´É(crud)ÀÌ ¸ğµ¨¸µµÈ ¼­ºñ½º Å¬·¡½º
- * --¹è¿­ ÀÚ·áÀúÀå±¸Á¶ => Collection(List) º¯°æ ¼³²¾
- * ## Àû¿ë ¼³°è ±â¼ú
+ * íšŒì›ê´€ë¦¬ë¥¼ ìœ„í•œ ê¸°ëŠ¥(crud)ì´ ëª¨ë¸ë§ëœ ì„œë¹„ìŠ¤ í´ë˜ìŠ¤
+ * --ë°°ì—´ ìë£Œì €ì¥êµ¬ì¡° => Collection(List) ë³€ê²½ ì„¤
+ * ## ì ìš© ì„¤ê³„ ê¸°ìˆ 
  * -- encapsulation
  * -- array
- * -- constuctor Áßº¹Á¤ÀÇ
- * -- polymorphism ´ÙÇü¼º : È¸¿øÅ¸ÀÔÀÇ ¹è¿­(ºÎ¸ğÅ¸ÀÔ)
+ * -- constuctor ì¤‘ë³µì •ì˜
+ * -- polymorphism ë‹¤í˜•ì„± : íšŒì›íƒ€ì…ì˜ ë°°ì—´(ë¶€ëª¨íƒ€ì…)
  * 
  * @author cse
  *
  */
 public class MemberServiceArray {
-	/** ´ÙÇü¼º : È¸¿ø(ÀÏ¹İ,¿ì¼ö,°ü¸®ÀÚ) °´Ã¼µéÀ» ÀúÀåÇÏ±âÀ§ÇÑ ÀÚ·á ÀúÀå±¸Á¶ */
+	/** ë‹¤í˜•ì„± : íšŒì›(ì¼ë°˜,ìš°ìˆ˜,ê´€ë¦¬ì) ê°ì²´ë“¤ì„ ì €ì¥í•˜ê¸°ìœ„í•œ ìë£Œ ì €ì¥êµ¬ì¡° */
 	
 	private ArrayList<Member> members = new ArrayList<Member>();
 	
 	
-	/** µî·Ï È¸¿ø¼ö Á¶È¸ ¸Ş¼­µå */
+	/** ë“±ë¡ íšŒì›ìˆ˜ ì¡°íšŒ ë©”ì„œë“œ */
 	public int getCount() {
 		return members.size();
 	}
 	
-	// ¸Å°³º¯¼ö ´ÙÇü¼º : È¸¿ø µî·Ï±â´É(ºÎ¸ğÅ¸ÀÔ) : ÀÏ¹İ, ¿ì¼ö, °ü¸®ÀÚ
+	// ë§¤ê°œë³€ìˆ˜ ë‹¤í˜•ì„± : íšŒì› ë“±ë¡ê¸°ëŠ¥(ë¶€ëª¨íƒ€ì…) : ì¼ë°˜, ìš°ìˆ˜, ê´€ë¦¬ì
 	public void addMember(Member dto) {
 		members.add(dto);
 	}
@@ -42,13 +42,13 @@ public class MemberServiceArray {
 		return -1;
 	}
 	
-	// ³»Á¤º¸Á¶È¸(È¸¿ø¾ÆÀÌµğ) : È¸¿ø(ºÎ¸ğ) ¹İÈ¯Å¸ÀÔ ´ÙÇü¼º
+	// ë‚´ì •ë³´ì¡°íšŒ(íšŒì›ì•„ì´ë””) : íšŒì›(ë¶€ëª¨) ë°˜í™˜íƒ€ì… ë‹¤í˜•ì„±
 	/*
-	 * 1. µî·ÏµÈ È¸¿ø¼ö ¸¸Å­ ¹İº¹ÇÏ¸é¼­
-	 * 2. ¾Æ±Ô¸ÕÆ®·Î Àü´Ş¹ŞÀº ¾ÆÀÌµğ¿Í ¹è¿­¿ä¼Ò°´Ã¼ÀÇ ¾ÆÀÌµğ°¡ °°ÀºÁö ºñ±³ÇØ¼­ : equals(Object)
-	 * 3. ¾ÆÀÌµğ°¡ °°À¸¸é ÇöÀç ÀÎµ¦½º°´Ã¼°¡ Á¶È¸°´Ã¼ÀÌ¹Ç·Î ¹İÈ¯
-	 * 4. for ±¸¹®À» ¹İº¹À» ´ÙÇß´Âµ¥µµ return µÇÁö ¾Ê¾Ò´Ù¸é ÇØ´ç¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö¾ÊÀ¸¹Ç·Î
-	 *    ¿À·ù¸Ş¼¼Áö Ãâ·ÂÇÏ°í
+	 * 1. ë“±ë¡ëœ íšŒì›ìˆ˜ ë§Œí¼ ë°˜ë³µí•˜ë©´ì„œ
+	 * 2. ì•„ê·œë¨¼íŠ¸ë¡œ ì „ë‹¬ë°›ì€ ì•„ì´ë””ì™€ ë°°ì—´ìš”ì†Œê°ì²´ì˜ ì•„ì´ë””ê°€ ê°™ì€ì§€ ë¹„êµí•´ì„œ : equals(Object)
+	 * 3. ì•„ì´ë””ê°€ ê°™ìœ¼ë©´ í˜„ì¬ ì¸ë±ìŠ¤ê°ì²´ê°€ ì¡°íšŒê°ì²´ì´ë¯€ë¡œ ë°˜í™˜
+	 * 4. for êµ¬ë¬¸ì„ ë°˜ë³µì„ ë‹¤í–ˆëŠ”ë°ë„ return ë˜ì§€ ì•Šì•˜ë‹¤ë©´ í•´ë‹¹ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ì•Šìœ¼ë¯€ë¡œ
+	 *    ì˜¤ë¥˜ë©”ì„¸ì§€ ì¶œë ¥í•˜ê³ 
 	 *    return null
 	 */
 	public Member getMember(String memberId) {
@@ -56,16 +56,16 @@ public class MemberServiceArray {
 		if(index >= 0) {			
 				return members.get(index); 
 			}
-		System.out.println("Error : È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. : " + memberId);
+		System.out.println("Error : íšŒì›ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. : " + memberId);
 		return null;
 		}
 			
 	
-	// ³»Á¤º¸º¯°æ
+	// ë‚´ì •ë³´ë³€ê²½
 	/**
-	 * ³»Á¤º¸º¯°æ
-	 * @param dto º¯°æ È¸¿ø°´Ã¼ Á¤º¸
-	 * @return º¯°æÀü È¸¿ø°´Ã¼ Á¤º¸
+	 * ë‚´ì •ë³´ë³€ê²½
+	 * @param dto ë³€ê²½ íšŒì›ê°ì²´ ì •ë³´
+	 * @return ë³€ê²½ì „ íšŒì›ê°ì²´ ì •ë³´
 	 */
 	public Member updateMember(Member dto) {
 		int index = isExist(dto.getMemberId());
@@ -74,11 +74,11 @@ public class MemberServiceArray {
 			members.set(index, dto);
 			return tmp;
 		}
-		System.out.println("Error : È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. : " + dto.getMemberId());
+		System.out.println("Error : íšŒì›ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. : " + dto.getMemberId());
 		return null; 
 	}
 	
-	// ¾ÏÈ£º¯°æ
+	// ì•”í˜¸ë³€ê²½
 	public void updateMemberPw(String memberId, String memberPw, String modifyMemberPw) {
 		int index = isExist(memberId);
 		Member tmp = new Member();
@@ -89,22 +89,22 @@ public class MemberServiceArray {
 			members.set(index, tmp);
 			return;
 		}
-		System.out.println("Error : È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. : " + memberId);
+		System.out.println("Error : íšŒì›ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. : " + memberId);
 	}
 	
 
-	// È¸¿øÅ»Åğ
+	// íšŒì›íƒˆí‡´
 	public void deleteMember(String memberId) {
 		int index = isExist(memberId);
 		if(index >= 0) {	
 			members.remove(index);
 			return;
 		} else {
-			System.out.println("Error : È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. : " + memberId);
+			System.out.println("Error : íšŒì›ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. : " + memberId);
 		}
 	}
 	
-	// ÀüÃ¼È¸¿ø Á¶È¸
+	// ì „ì²´íšŒì› ì¡°íšŒ
 	public ArrayList getMember() {
 		
 		ArrayList tmp = new ArrayList();
