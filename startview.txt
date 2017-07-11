@@ -1,0 +1,11 @@
+		print("회원 ID 찾기 이메일이용");
+		dto = service.findIdEmail("홍길동", "user01@work.com");
+		if (dto != null) {
+			System.out.println(" ID : " + dto.getMemberId() + "\n 가입 : " + dto.getEntryDate());
+		}
+		
+		print("회원 ID 찾기 연락처이용");
+		dto = service.findIdMobile("홍길동", "010-1234-1111");
+		if (dto != null) {
+			System.out.println(" ID : " + dto.getMemberId() + "\n 가입 : " + dto.getEntryDate());
+		}

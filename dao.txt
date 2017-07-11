@@ -1,0 +1,101 @@
+	/**
+	 * 이름과 이메일로 회원아이디 찾기
+	 * @param memberId
+	 * @param email
+	 * @return
+	 */
+	public Member findIdFromEmail(String memberName, String email) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String sql = "select * from members where member_Name=? and email=?";
+		
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, memberName);
+			stmt.setString(2, email);
+			rs = stmt.executeQuery();
+			
+			String memberId = null;
+			String memberPw = null;
+			String mobile = null;
+			String entryDate = null;
+			char grade = '\u0000';
+			int mileage = 0;
+			String manager = null;
+			
+			while(rs.next()) {
+				memberId = rs.getString("member_id");
+				memberPw = rs.getString("member_pw");
+				memberName = rs.getString("member_name");
+				mobile = rs.getString("mobile");
+				email = rs.getString("email");
+				entryDate = rs.getString("entry_date");
+				grade = rs.getString("grade").charAt(0);
+				mileage = rs.getInt("mileage");
+				manager = rs.getString("manager");
+				
+				return new Member(memberId, memberPw, memberName, mobile, email, entryDate, grade, mileage, manager);
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error(ID찾기 오류) : " + e.getMessage());
+		} finally {
+			close(rs, stmt, conn);
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 이름과 연락처로 회원아이디 찾기
+	 * @param memberName
+	 * @param mobile
+	 * @return
+	 */
+	public Member findIdFromMobile(String memberName, String mobile) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String sql = "select * from members where member_Name=? and mobile=?";
+		
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, memberName);
+			stmt.setString(2, mobile);
+			rs = stmt.executeQuery();
+			
+			String memberId = null;
+			String memberPw = null;
+			String email = null;
+			String entryDate = null;
+			char grade = '\u0000';
+			int mileage = 0;
+			String manager = null;
+			
+			while(rs.next()) {
+				memberId = rs.getString("member_id");
+				memberPw = rs.getString("member_pw");
+				memberName = rs.getString("member_name");
+				mobile = rs.getString("mobile");
+				email = rs.getString("email");
+				entryDate = rs.getString("entry_date");
+				grade = rs.getString("grade").charAt(0);
+				mileage = rs.getInt("mileage");
+				manager = rs.getString("manager");
+				
+				return new Member(memberId, memberPw, memberName, mobile, email, entryDate, grade, mileage, manager);
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Error(ID찾기 오류) : " + e.getMessage());
+		} finally {
+			close(rs, stmt, conn);
+		}
+		
+		return null;
+	}

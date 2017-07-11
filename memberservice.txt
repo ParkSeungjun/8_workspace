@@ -1,0 +1,18 @@
+	/**
+	 * 회원 아이디 찾기 이름, 이메일
+	 * @param memberName
+	 * @param email
+	 * @return
+	 */
+	public Member findIdEmail(String memberName, String email) {
+		return dao.findIdFromEmail(memberName, email);
+	}
+	/**
+	 * 회원 아이디 찾기 이름, 연락처
+	 * @param memberName
+	 * @param mobile
+	 * @return
+	 */
+	public Member findIdMobile(String memberName, String mobile) {
+		return dao.findIdFromMobile(memberName, mobile);
+	}
